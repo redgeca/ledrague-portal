@@ -8,17 +8,17 @@ namespace ledrague_portal.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        DbSet<LeDragueCoreObjects.Contracts.Artist> ContractArtists { get; set; }
-        DbSet<LeDragueCoreObjects.Contracts.Contract> Contracts { get; set; }
-        DbSet<LeDragueCoreObjects.Contracts.Contract_Content> ContractContents { get; set; }
-        DbSet<LeDragueCoreObjects.Contracts.Template> ContractTemplates{ get; set; }
-        DbSet<LeDragueCoreObjects.Contracts.Token_Value> ContractTokenValues { get; set; }
-        DbSet<LeDragueCoreObjects.Karaoke.Artist> KaraokeArtists { get; set; }
-        DbSet<LeDragueCoreObjects.Karaoke.Category> KaraokeCategories { get; set; }
-        DbSet<LeDragueCoreObjects.Karaoke.Configuration> Configurations { get; set; }
-        DbSet<LeDragueCoreObjects.Karaoke.Playlist> KaraokePlaylists { get; set; }
-        DbSet<LeDragueCoreObjects.Karaoke.Request> KaraokeRequests{ get; set; }
-        DbSet<LeDragueCoreObjects.Karaoke.Song> KaraokeSongs { get; set; }
+        public DbSet<LeDragueCoreObjects.Contracts.Artist> ContractArtists { get; set; }
+        public DbSet<LeDragueCoreObjects.Contracts.Contract> Contracts { get; set; }
+        public DbSet<LeDragueCoreObjects.Contracts.Contract_Content> ContractContents { get; set; }
+        public DbSet<LeDragueCoreObjects.Contracts.Template> ContractTemplates{ get; set; }
+        public DbSet<LeDragueCoreObjects.Contracts.Token_Value> ContractTokenValues { get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.Artist> KaraokeArtists { get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.Category> KaraokeCategories { get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.Configuration> Configurations { get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.Playlist> KaraokePlaylists { get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.Request> KaraokeRequests{ get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.Song> KaraokeSongs { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
