@@ -4,11 +4,11 @@ using System.Text;
 
 namespace LeDragueCoreObjects.misc
 {
-    class Constants
+    public class Constants
     {
         public const String INDEX_FOLDER = @"C:\karaoke\index";
 
-        public const String CONNECTION_STRING = @"Server=.\SQLEXPRESS;Database=drague-karaoke;Trusted_Connection=True;";
+        public const String CONNECTION_STRING = @"Server=.\SQLEXPRESS;Database=ledrague-portal;Trusted_Connection=True;";
 
         public const String TITLE_FIELD = "Title";
 

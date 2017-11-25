@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using Microsoft.AspNetCore.Http;
+
 
 namespace LeDragueCoreObjects.Contracts
 {
@@ -21,7 +21,7 @@ namespace LeDragueCoreObjects.Contracts
 
         [NotMapped]
         [Display(Name = "Fichier modèle")]
-        public IFormFile InnerContent { get; set; }
+//        public IFormFile InnerContent { get; set; }
 
         public virtual ICollection<Contract> Contracts { get; set; }
     }
