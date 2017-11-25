@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "22cc8ef69b72197093b6b27b62408a2364bcbd7d"
+    "signature": "17e309f3da102b1e15ddab38373d1f21eb684c96"
   },
   "compilationOptions": {
     "defines": [
@@ -34,17 +34,6 @@
         },
         "compile": {
           "LeDraguePortal.dll": {}
-        }
-      },
-      "IFormFileExtensions/1.3.1": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Http": "2.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/IFormFileExtensions.dll": {}
-        },
-        "compile": {
-          "lib/netstandard2.0/IFormFileExtensions.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -4049,7 +4038,6 @@
       },
       "LeDragueCoreObjects/1.0.0": {
         "dependencies": {
-          "IFormFileExtensions": "1.3.1",
           "Newtonsoft.Json": "10.0.3"
         },
         "runtime": {
@@ -4242,13 +4230,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "IFormFileExtensions/1.3.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-IrCkSN1KRCViRGP4Q67F57J78snSzWhLx/2TkeMhbQ7Sd6LrLiDWa425xRz7gDgRhbu42hZV7/cGzskqKoO1dA==",
-      "path": "iformfileextensions/1.3.1",
-      "hashPath": "iformfileextensions.1.3.1.nupkg.sha512"
     },
     "Libuv/1.10.0": {
       "type": "package",
