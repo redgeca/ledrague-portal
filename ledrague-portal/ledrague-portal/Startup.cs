@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ledrague_portal.Data;
 using ledrague_portal.Models;
 using ledrague_portal.Services;
+using LeDraguePortal.Data;
 
 namespace ledrague_portal
 {
@@ -44,7 +45,7 @@ namespace ledrague_portal
             });
 
             /*
-            services.AddAuthorization(options =>
+                services.AddAuthorization(options =>
             {
                options.AddPolicy("test1", policy => policy.RequireRole("admin"));
             });
@@ -65,7 +66,7 @@ namespace ledrague_portal
                .AddJsonOptions(
                    options => options.SerializerSettings.ReferenceLoopHandling =
                    Newtonsoft.Json.ReferenceLoopHandling.Ignore
-           );
+                );
 
             // Register no-op EmailSender used by account confirmation and password reset during development
             // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
@@ -73,7 +74,7 @@ namespace ledrague_portal
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, RoleManager<IdentityRole> roleManager)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -89,20 +90,6 @@ namespace ledrague_portal
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
-            
-            /*
-            // Seed Roles for the application
-            string[] applicationRoles = new String[] { "poweruser", "admin", "animation", "dj" };
-            foreach (String roleName in applicationRoles)
-            {
-                Task<IdentityRole> role = roleManager.FindByNameAsync(roleName);
-                if (role.Result == null)
-                {
-                    roleManager.CreateAsync(new IdentityRole(roleName));
-                }
-            }
-            */
 
             app.UseCors("CorsPolicy");
 

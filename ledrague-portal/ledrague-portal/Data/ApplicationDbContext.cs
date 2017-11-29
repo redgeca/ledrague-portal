@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ledrague_portal.Models;
 using LeDragueCoreObjects;
 using LeDragueCoreObjects.Contracts;
+using LeDragueCoreObjects.cia;
 
 namespace ledrague_portal.Data
 {
@@ -19,6 +20,9 @@ namespace ledrague_portal.Data
         public DbSet<LeDragueCoreObjects.Karaoke.Playlist> KaraokePlaylists { get; set; }
         public DbSet<LeDragueCoreObjects.Karaoke.Request> KaraokeRequests{ get; set; }
         public DbSet<LeDragueCoreObjects.Karaoke.Song> KaraokeSongs { get; set; }
+
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<ApplicationRight> ApplicationRights { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

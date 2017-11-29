@@ -1,0 +1,24 @@
+<div style="margin-top: 10px">
+    <button mat-button routerLink="/user">Ajouter un utilisateur</button>
+
+    <div style="margin-top: 10px" *ngFor="let user of users">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title [routerLink]="['/user', user.id]">
+                        {{ user.userName }}                
+                </mat-panel-title>
+                <mat-panel-description>
+                    Afficher les rôles par application....
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+                <input matInput placeholder="First name">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Age">
+            </mat-form-field>
+        </mat-expansion-panel>
+    </div>
+</div>

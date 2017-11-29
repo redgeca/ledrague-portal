@@ -1,0 +1,37 @@
+<div>
+    <mat-card class="card">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <mat-input-container style="width: 365px">
+                <input matInput placeholder="Nom d'utilisateur" formControlName="username" [ngClass]="{'error': isValid('username') }"/>
+            </mat-input-container>
+            <br>
+            <mat-input-container style="width: 365px">
+                <input matInput type="email" placeholder="Courriel" formControlName="email" [ngClass]="{'error': isValid('email') }"/>
+            </mat-input-container>
+            <br>
+            <mat-input-container *ngIf="!isEditing">
+                <input matInput type="password" placeholder="Mot de passe" formControlName="password" [ngClass]="{'error': isValid('password') }"/>
+            </mat-input-container>
+            <mat-input-container *ngIf="!isEditing">
+                <input matInput type="password" placeholder="Confirmation..." formControlName="confirmPassword" [ngClass]="{'error': isValid('confirmPassword') }"/>
+            </mat-input-container>
+            <br *ngIf="userForm.errors?.mismatchedFields">
+            <span *ngIf="userForm.errors?.mismatchedFields" style="color: red;" class="error">Les mots de passe sont différents</span>
+            <br>
+            <mat-form-field style="width: 365px">
+                <mat-select placeholder="Rôles pour l'application" [(value)]="selection" style="width: 365px">
+                    <mat-option *ngFor="let application of applications" [value]="application.value" style="width: 365px">
+                        {{ application.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <p *ngIf="selection == null else ">Aucune sélection</p>
+            <p *ngIf="selection != null">Selection : {{ selection }}</p>
+            <br>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" style="margin-left: 10px">Sauvegarder</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
