@@ -10,6 +10,6 @@ namespace LeDragueCoreObjects.cia
         public string Name { get; set; }
         public string ApplicationPrefix { get; set; }
 
-        public List<ApplicationRight> ApplicationRights;
+        public List<ApplicationRight> ApplicationRights { get; set; }
     }
 }

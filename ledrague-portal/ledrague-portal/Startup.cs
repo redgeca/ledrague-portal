@@ -12,6 +12,8 @@ using ledrague_portal.Data;
 using ledrague_portal.Models;
 using ledrague_portal.Services;
 using LeDraguePortal.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace ledrague_portal
 {
@@ -45,9 +47,9 @@ namespace ledrague_portal
             });
 
             /*
-                services.AddAuthorization(options =>
+            services.AddAuthorization(options =>
             {
-               options.AddPolicy("test1", policy => policy.RequireRole("admin"));
+               options.AddPolicy("RequirePassword", policy => policy.RequireAssertion(c => c.User.);
             });
             */
 
@@ -57,7 +59,15 @@ namespace ledrague_portal
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
                 }));
 
-            services.AddMvc()
+            services.AddMvc( config =>
+            {
+                /*
+                var policy = new AuthorizationPolicyBuilder()
+                             .RequireAuthenticatedUser()
+                             .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+                */
+            })
                .AddRazorPagesOptions(options =>
                {
                    options.Conventions.AuthorizeFolder("/Account/Manage");

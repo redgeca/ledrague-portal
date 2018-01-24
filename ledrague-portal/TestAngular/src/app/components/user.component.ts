@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserServices } from '../services/user.services'
+import { ApplicationRightServices } from '../services/applicationright.services'
 import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
 
@@ -25,7 +26,8 @@ export class UserComponent {
   userForm;
   isEditing = false
 
-  constructor(private userServices: UserServices, formBuilder: FormBuilder, private route: ActivatedRoute) {
+  constructor(private userServices: UserServices, private formBuilder: FormBuilder, private route: ActivatedRoute,
+    private applicationServices: ApplicationRightServices) {
     this.userForm = formBuilder.group({
       username: ['', Validators.required],
       email: ['', emailValid()],
@@ -41,7 +43,8 @@ export class UserComponent {
       })
   }
 
-  ngOnInit() {
+  applicationRights = [];
+  async ngOnInit() {
     var id = this.route.snapshot.params.id
     console.log(id)
 
@@ -51,11 +54,17 @@ export class UserComponent {
     } else {
       this.isEditing = true;
     }
+
+    var response = await this.applicationServices.getApplicationRights();
+    this.applicationRights = response.json();
+    console.log(response.json())
+
   }
 
   onSubmit() {
-    console.log(this.userForm.errors)
-    console.log(this.userForm.valid)
+    console.log("On ajoute un user : " + this.userForm.value)
+    this.userServices.addUser(this.userForm.value.username, this.userForm.value.email, this.userForm.value.password);
+
   }
 
   isValid(control) {

@@ -20,8 +20,8 @@
             <br>
             <mat-form-field style="width: 365px">
                 <mat-select placeholder="Rôles pour l'application" [(value)]="selection" style="width: 365px">
-                    <mat-option *ngFor="let application of applications" [value]="application.value" style="width: 365px">
-                        {{ application.viewValue }}
+                    <mat-option *ngFor="let applicationRight of applicationRights" [value]="applicationRight.name" style="width: 365px">
+                        {{ applicationRight.name }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

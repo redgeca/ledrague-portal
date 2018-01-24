@@ -8,7 +8,7 @@ namespace LeDragueCoreObjects.misc
     {
         public const String INDEX_FOLDER = @"C:\karaoke\index";
 
-        public const String CONNECTION_STRING = @"Server=.\SQLEXPRESS;Database=ledrague-portal;Trusted_Connection=True;";
+        public const String CONNECTION_STRING = @"Server=.\SQLEXPRESS;Database=leDraguePortal;Trusted_Connection=True;";
 
         public const String TITLE_FIELD = "Title";
 

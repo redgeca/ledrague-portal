@@ -23,6 +23,7 @@ namespace ledrague_portal.Data
 
         public DbSet<Application> Applications { get; set; }
         public DbSet<ApplicationRight> ApplicationRights { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

@@ -2,13 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule,
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorIntl,
+         MatButtonModule,
          MatInputModule,
          MatSnackBarModule,
          MatToolbarModule,
          MatCardModule, 
          MatIconModule,
-        MatSelectModule  } from '@angular/material';
+         MatTableModule,
+         MatPaginatorModule,
+         MatSelectModule  } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar.component'
@@ -16,12 +20,15 @@ import { RegisterComponent } from './components/register.component'
 import { HomeComponent } from './components/home.component'
 import { UserListComponent } from './components/userlist.component'
 import { UserServices } from './services/user.services';
+import { ApplicationRightServices } from './services/applicationright.services'
 import { Http } from '@angular/http';
 import { HttpModule } from '@angular/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UserComponent } from './components/user.component';
+import { Routes } from '@angular/router/src/config';
+import { LoginComponent} from './components/login/login.component' 
 
-var routes = [
+const routes:Routes = [
   {
     path: '',
     component: HomeComponent
@@ -41,6 +48,14 @@ var routes = [
   {
     path: 'user',
     component: UserComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    component: HomeComponent
   } 
 ]
 
@@ -51,7 +66,8 @@ var routes = [
     HomeComponent,
     RegisterComponent,
     UserListComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, 
@@ -65,11 +81,14 @@ var routes = [
     HttpModule,
     MatCardModule, 
     MatExpansionModule, 
+    MatTableModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
-  providers: [ UserServices ],
+  providers: [{ provide: MatPaginatorIntl, useClass: UserListComponent}, UserServices, ApplicationRightServices ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

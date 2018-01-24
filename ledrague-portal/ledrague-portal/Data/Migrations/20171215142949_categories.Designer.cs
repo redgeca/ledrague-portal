@@ -11,16 +11,17 @@ using System;
 namespace ledrague_portal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171215142949_categories")]
+    partial class categories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("leDraguePortal.Models.ApplicationUser", b =>
+            modelBuilder.Entity("ledrague_portal.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -92,7 +93,7 @@ namespace ledrague_portal.Data.Migrations
 
                     b.Property<int>("ApplicationId");
 
-                    b.Property<int>("CategoryId");
+                    b.Property<int?>("CategoryId");
 
                     b.Property<string>("DisplayName");
 
@@ -444,8 +445,7 @@ namespace ledrague_portal.Data.Migrations
 
                     b.HasOne("LeDragueCoreObjects.cia.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("CategoryId");
                 });
 
             modelBuilder.Entity("LeDragueCoreObjects.Contracts.Contract", b =>
