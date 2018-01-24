@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ledrague_portal.Models;
-using LeDragueCoreObjects;
-using LeDragueCoreObjects.Contracts;
 using LeDragueCoreObjects.cia;
 
 namespace ledrague_portal.Data
