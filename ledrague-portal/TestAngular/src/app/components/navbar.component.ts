@@ -8,7 +8,9 @@ import { Component } from '@angular/core';
     <button mat-button style="color:white;" routerLink="/">Contrôle des Identités et des Accès</button>
     <button mat-button style="color:white;" routerLink="/register">Register</button>
     <button mat-button style="color:white;" routerLink="/users">Utilisateurs</button>
-  </mat-toolbar>
+    <button mat-button style="color:white;" routerLink="/autocomplete">AutoComplete test</button>
+    <button mat-button style="color:white;" routerLink="/dropdown">Dropdown test</button>
+    </mat-toolbar>
   `
 })
 

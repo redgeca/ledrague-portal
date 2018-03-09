@@ -22,7 +22,13 @@ namespace leDraguePortal.Controllers
 
         public ActionResult getRights()
         {
-            return Ok(dbContext.Applications.Include(a => a.ApplicationRights).ToList());
+            var result = dbContext.Applications.Include(a => a.ApplicationRights)
+            //dbContext.CiaApplications.Include(a => a.ApplicationRights)
+                .OrderBy(a => a.Name).ToList();
+
+            result.ForEach(ar => ar.ApplicationRights = ar.ApplicationRights.OrderBy(r => r.DisplayName).ToList());
+      
+            return Ok(result);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace LeDragueCoreObjects.cia
@@ -15,5 +16,8 @@ namespace LeDragueCoreObjects.cia
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        [NotMapped]
+        public Boolean IsChecked { get; set; }
     }
 }

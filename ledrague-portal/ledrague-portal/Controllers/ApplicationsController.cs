@@ -30,8 +30,10 @@ namespace leDraguePortal.Controllers
         [HttpGet("{name}")]
         public ActionResult get(string name)
         {
-            return Ok(dbContext.Applications.Include(a => a.ApplicationRights).ThenInclude(r => r.Category)
-                .Where(a => a.Name.Equals(name)).FirstOrDefault());
+            var result = dbContext.Applications.Include(a => a.ApplicationRights).ThenInclude(r => r.Category)
+                .Where(a => a.Name.Equals(name)).ToList();
+            result.ForEach(ar => ar.ApplicationRights = ar.ApplicationRights.OrderBy(r => r.DisplayName).ToList());
+            return Ok(result.FirstOrDefault());
         }
     }
 }

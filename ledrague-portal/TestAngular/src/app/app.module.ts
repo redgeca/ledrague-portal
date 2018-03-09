@@ -12,7 +12,9 @@ import { MatPaginatorIntl,
          MatIconModule,
          MatTableModule,
          MatPaginatorModule,
-         MatSelectModule  } from '@angular/material';
+         MatSelectModule,
+         MatCheckboxModule,
+         MatAutocompleteModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar.component'
@@ -27,6 +29,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { UserComponent } from './components/user.component';
 import { Routes } from '@angular/router/src/config';
 import { LoginComponent} from './components/login/login.component' 
+import { DropdownComponent} from './components/dropdown/dropdown.component' ;
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 const routes:Routes = [
   {
@@ -54,6 +58,14 @@ const routes:Routes = [
     component: LoginComponent
   },
   {
+    path: 'autocomplete',
+    component: AutocompleteComponent
+  },
+  {
+    path: 'dropdown',
+    component: DropdownComponent
+  },
+  {
     path: '**',
     component: HomeComponent
   } 
@@ -67,7 +79,9 @@ const routes:Routes = [
     RegisterComponent,
     UserListComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    DropdownComponent,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule, 
@@ -86,7 +100,9 @@ const routes:Routes = [
     FormsModule,
     MatPaginatorModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    MatCheckboxModule
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: UserListComponent}, UserServices, ApplicationRightServices ],
   bootstrap: [AppComponent]

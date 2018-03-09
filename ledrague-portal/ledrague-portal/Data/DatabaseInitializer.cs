@@ -80,6 +80,15 @@ namespace LeDraguePortal.Data
                         new ApplicationRight { Name = "drague.com.karaoke.manage.playlist", DisplayName = "Gérer la playlist (Ajouter ou enlever de)", Category = other },
                     }
                 },
+                new Application { Name = "Réservation des loges", ApplicationPrefix = "drague.com.reservation." ,
+                    ApplicationRights = new List<ApplicationRight>
+                    {
+                        new ApplicationRight { Name = "drague.com.reservation.add.reservation", DisplayName = "Réserver les loges", Category = create  },
+                        new ApplicationRight { Name = "drague.com.reservation.update.reservation", DisplayName = "Approuver une réservation", Category = update },
+                        new ApplicationRight { Name = "drague.com.reservation.delete.ownreservation", DisplayName = "Effacer ses réservations", Category = delete },
+                        new ApplicationRight { Name = "drague.com.reservation.delete.allreservation", DisplayName = "Effacer des réservations", Category = other },
+                    }
+                },
             };
 
             foreach (Application application in seedingApplications)
