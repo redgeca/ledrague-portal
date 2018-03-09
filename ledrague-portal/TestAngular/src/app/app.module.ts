@@ -31,6 +31,7 @@ import { Routes } from '@angular/router/src/config';
 import { LoginComponent} from './components/login/login.component' 
 import { DropdownComponent} from './components/dropdown/dropdown.component' ;
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { DndListModule } from 'ngx-drag-and-drop-lists';
 
 const routes:Routes = [
   {
@@ -102,6 +103,7 @@ const routes:Routes = [
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatAutocompleteModule,
+    DndListModule,
     MatCheckboxModule
   ],
   providers: [{ provide: MatPaginatorIntl, useClass: UserListComponent}, UserServices, ApplicationRightServices ],
