@@ -1,18 +1,17 @@
 import { Http, Headers, RequestOptions } from '@angular/http'
 import { Injectable } from '@angular/core'
+import { Constants } from '../constants/constants';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserServices {
-
-    BASE_URL = "https://localhost:44349/api";
 
     constructor(private http: Http) {
 
     }
 
     getUsers() {
-        return this.http.get(this.BASE_URL + "/users").toPromise();        
+        return this.http.get(Constants.BASE_URL + "/users").toPromise();        
     }
 
     addUser(pUsername, pEmail, pPassword) {
@@ -29,6 +28,6 @@ export class UserServices {
         headers.append('Accept', 'application/json, text/plain');
         let options  = new RequestOptions( { headers: headers } );
 
-        return this.http.post(this.BASE_URL + "/users", user, options).toPromise();
+        return this.http.post(Constants.BASE_URL + "/users", user, options).toPromise();
     }
 }

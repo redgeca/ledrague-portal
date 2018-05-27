@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserServices } from '../../services/user.services';
 import { FormBuilder, Validators } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
+import { AuthService } from '../../services/auth.service';
 
 @Component({
     moduleId: module.id,
@@ -19,7 +20,7 @@ export class LoginComponent {
     
     credentialsForm;
 
-    constructor(private userServices: UserServices, private formBuilder: FormBuilder, private route: ActivatedRoute) {
+    constructor(private authService: AuthService, private formBuilder: FormBuilder, private route: ActivatedRoute) {
         this.credentialsForm = formBuilder.group( {
             username: ['', Validators.required],
             password: ['', Validators.required],
