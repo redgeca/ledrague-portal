@@ -170,34 +170,45 @@ namespace KaraokeImport
                 writer.DeleteAll();
 
                 int x = 0;
-                foreach (Song song in db.KaraokeSongs.Include(s => s.Artist).Include(s => s.Category).ToList())
+                foreach (Song song in db.KaraokeSongs.Include(s => s.Artist)
+                    .Include(s => s.CategorySongs).ThenInclude(s => s.Category).ToList())
                 {
-                    writer.AddDocument(getSongDocument(song.Id.ToString(), song.Title,
-                        song.Artist == null ? "" : song.Artist.Name,
-                        song.Category == null ? "" : song.Category.Name));
+                    writer.AddDocument(getSongDocument(song));
                     x++;
                     Console.WriteLine("Song " + song.Title + " by " + song.Artist.Name);
                 }
+
                 Console.WriteLine(x + " songs loaded ");
                 writer.Dispose();
             }
         }
 
-        private static Document getSongDocument(String pId, String pName, String pArtist, String pCategory)
+        private static Document getSongDocument(Song pSong)
         {
             Document luceneDocument = new Document();
-            Field idField = new Field("Id", pId, Field.Store.YES, Field.Index.ANALYZED);
-            Field titleField = new Field("Title", pName, Field.Store.YES, Field.Index.ANALYZED);
-            Field categoryField = new Field("Category", pCategory == null ? "" : pCategory, Field.Store.YES, Field.Index.ANALYZED);
-            Field artistField = new Field("Artist", pArtist == null ? "" : pArtist, Field.Store.YES, Field.Index.ANALYZED);
+            Field idField = new Field("Id", pSong.Id.ToString(), Field.Store.YES, Field.Index.ANALYZED);
+            Field titleField = new Field("Title", pSong.Title, Field.Store.YES, Field.Index.ANALYZED);
+            Field artistField = new Field("Artist", pSong.Artist == null ? "" : pSong.Artist.Name, Field.Store.YES, Field.Index.ANALYZED);
 
+            List<Field> categoryFields = new List<Field>();
+
+            foreach(CategorySong categorySong in pSong.CategorySongs)
+            {
+                Field categoryField = new Field("Category", 
+                    categorySong.Category == null ? "" : categorySong.Category.Name, Field.Store.YES, Field.Index.ANALYZED);
+                categoryField.Boost = 1;
+                categoryFields.Add(categoryField);
+            }
+            
             titleField.Boost = 5;
             artistField.Boost = 3;
-            categoryField.Boost = 1;
 
             luceneDocument.Add(idField);
             luceneDocument.Add(titleField);
-            luceneDocument.Add(categoryField);
+            foreach (Field field in categoryFields)
+            {
+                luceneDocument.Add(field);
+            }
             luceneDocument.Add(artistField);
 
             return luceneDocument;

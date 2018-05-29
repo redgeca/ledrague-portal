@@ -1,7 +1,9 @@
 ﻿using LeDragueCoreObjects.Converters;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace LeDragueCoreObjects.Karaoke
 {
@@ -15,6 +17,8 @@ namespace LeDragueCoreObjects.Karaoke
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
+        public ICollection<CategorySong> CategorySongs { get; set; } = new List<CategorySong>();
 
         public int ArtistId { get; set; }
         public Artist Artist { get; set; }

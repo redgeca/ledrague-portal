@@ -20,7 +20,7 @@ namespace ledrague_portal.Data.Migrations
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("leDraguePortal.Models.ApplicationUser", b =>
+            modelBuilder.Entity("ledrague_portal.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -253,6 +253,19 @@ namespace ledrague_portal.Data.Migrations
                     b.ToTable("KaraokeCategories");
                 });
 
+            modelBuilder.Entity("LeDragueCoreObjects.Karaoke.CategorySong", b =>
+                {
+                    b.Property<int>("CategoryId");
+
+                    b.Property<int>("SongId");
+
+                    b.HasKey("CategoryId", "SongId");
+
+                    b.HasIndex("SongId");
+
+                    b.ToTable("KaraokeCategorySongs");
+                });
+
             modelBuilder.Entity("LeDragueCoreObjects.Karaoke.Configuration", b =>
                 {
                     b.Property<int>("id")
@@ -470,6 +483,19 @@ namespace ledrague_portal.Data.Migrations
                         .HasForeignKey("ContractId");
                 });
 
+            modelBuilder.Entity("LeDragueCoreObjects.Karaoke.CategorySong", b =>
+                {
+                    b.HasOne("LeDragueCoreObjects.Karaoke.Category", "Category")
+                        .WithMany("CategorySongs")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LeDragueCoreObjects.Karaoke.Song", "Song")
+                        .WithMany("CategorySongs")
+                        .HasForeignKey("SongId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("LeDragueCoreObjects.Karaoke.Playlist", b =>
                 {
                     b.HasOne("LeDragueCoreObjects.Karaoke.Request", "Request")
@@ -494,7 +520,7 @@ namespace ledrague_portal.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("LeDragueCoreObjects.Karaoke.Category", "Category")
-                        .WithMany("Songs")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

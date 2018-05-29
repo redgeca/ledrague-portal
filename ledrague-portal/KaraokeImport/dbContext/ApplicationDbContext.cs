@@ -17,8 +17,15 @@ namespace KaraokeImport.dbContext
         {
             base.OnModelCreating(modelBuilder);
 
-            //            modelBuilder.Entity<Song>().HasOne<Artist>();
-            //            modelBuilder.Entity<Song>().HasOne<Category>();
+            modelBuilder.Entity<CategorySong>().HasKey(t => new { t.CategoryId, t.SongId });
+
+            modelBuilder.Entity<CategorySong>().HasOne(cs => cs.Category)
+                .WithMany(cs => cs.CategorySongs)
+                .HasForeignKey(cs => cs.CategoryId);
+
+            modelBuilder.Entity<CategorySong>().HasOne(cs => cs.Song)
+                .WithMany(cs => cs.CategorySongs)
+                .HasForeignKey(cs => cs.SongId);
         }
 
         public DbSet<LeDragueCoreObjects.Karaoke.Artist> KaraokeArtists { get; set; }
@@ -27,5 +34,6 @@ namespace KaraokeImport.dbContext
         public DbSet<LeDragueCoreObjects.Karaoke.Playlist> KaraokePlaylists { get; set; }
         public DbSet<LeDragueCoreObjects.Karaoke.Request> KaraokeRequests { get; set; }
         public DbSet<LeDragueCoreObjects.Karaoke.Song> KaraokeSongs { get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.CategorySong> KaraokeCategorySongs { get; set; }
     }
 }

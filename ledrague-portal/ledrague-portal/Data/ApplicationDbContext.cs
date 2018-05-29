@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ledrague_portal.Models;
+using LeDragueCoreObjects.Karaoke;
 
 namespace ledrague_portal.Data
 {
@@ -17,6 +18,7 @@ namespace ledrague_portal.Data
         public DbSet<LeDragueCoreObjects.Karaoke.Playlist> KaraokePlaylists { get; set; }
         public DbSet<LeDragueCoreObjects.Karaoke.Request> KaraokeRequests{ get; set; }
         public DbSet<LeDragueCoreObjects.Karaoke.Song> KaraokeSongs { get; set; }
+        public DbSet<LeDragueCoreObjects.Karaoke.CategorySong> KaraokeCategorySongs { get; set; }
 
         public DbSet<LeDragueCoreObjects.cia.Application> Applications { get; set; }
         public DbSet<LeDragueCoreObjects.cia.ApplicationRight> ApplicationRights { get; set; }
@@ -30,9 +32,16 @@ namespace ledrague_portal.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
+
+            builder.Entity<CategorySong>().HasKey(t => new { t.CategoryId, t.SongId });
+
+            builder.Entity<CategorySong>().HasOne(cs => cs.Category)
+                .WithMany(cs => cs.CategorySongs)
+                .HasForeignKey(cs => cs.CategoryId);
+
+            builder.Entity<CategorySong>().HasOne(cs => cs.Song)
+                .WithMany(cs => cs.CategorySongs)
+                .HasForeignKey(cs => cs.SongId);
         }
     }
 }
