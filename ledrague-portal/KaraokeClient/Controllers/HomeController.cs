@@ -14,12 +14,23 @@ using Lucene.Net.Index;
 using KaraokeClient.contexts;
 using LeDragueCoreObjects.misc;
 using LeDragueCoreObjects.Karaoke;
+using Microsoft.Extensions.Logging;
 
 namespace KaraokeClient.Controllers
 {
     public class HomeController : Controller
     {
         private static readonly String SINGERNAME_COOKIE = "singerName";
+        private readonly ILogger logger;
+
+        public HomeController(ILogger<HomeController> pLogger)
+        {
+            logger = pLogger;
+            String indexLocation = Constants.INDEX_FOLDER;
+            String directory = System.IO.Directory.GetCurrentDirectory();
+
+            logger.LogCritical("Directory : " + directory + " : " + indexLocation);
+        }
 
         public IActionResult Index()
         {
@@ -57,6 +68,7 @@ namespace KaraokeClient.Controllers
         [HttpGet]
         public ActionResult KeywordSearch(string term)
         {
+            logger.LogCritical("Houston2");
             Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
 
             // Perform a search
@@ -90,6 +102,9 @@ namespace KaraokeClient.Controllers
         private IndexSearcher getSearcher()
         {
             String indexLocation = Constants.INDEX_FOLDER;
+            String directory = System.IO.Directory.GetCurrentDirectory();
+
+            logger.LogCritical("Directory : " + directory + " : " + indexLocation);
             Directory indexDirectory = FSDirectory.Open(indexLocation);
 
             // Perform a search

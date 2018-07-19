@@ -1,0 +1,11 @@
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\bin\Release\netcoreapp2.0\LeDragueCoreObjects.deps.json
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\bin\Release\netcoreapp2.0\LeDragueCoreObjects.dll
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\bin\Release\netcoreapp2.0\LeDragueCoreObjects.pdb
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\bin\Release\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\bin\Release\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.xml
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Release\netcoreapp2.0\LeDragueCoreObjects.csprojResolveAssemblyReference.cache
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Release\netcoreapp2.0\LeDragueCoreObjects.csproj.CoreCompileInputs.cache
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Release\netcoreapp2.0\LeDragueCoreObjects.AssemblyInfoInputs.cache
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Release\netcoreapp2.0\LeDragueCoreObjects.AssemblyInfo.cs
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Release\netcoreapp2.0\LeDragueCoreObjects.dll
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Release\netcoreapp2.0\LeDragueCoreObjects.pdb

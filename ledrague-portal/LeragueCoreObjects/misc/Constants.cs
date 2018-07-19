@@ -6,7 +6,7 @@ namespace LeDragueCoreObjects.misc
 {
     public class Constants
     {
-        public const String INDEX_FOLDER = @"C:\karaoke\index";
+        public const String INDEX_FOLDER = @"\karaoke\index";
 
         public const String CONNECTION_STRING = @"Server=.\SQLEXPRESS;Database=leDraguePortal;Trusted_Connection=True;";
 

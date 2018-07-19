@@ -19,6 +19,10 @@ namespace KaraokeClient
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseKestrel()
+                .UseIISIntegration()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseApplicationInsights()
                 .UseStartup<Startup>()
                 .Build();
     }

@@ -1,0 +1,13 @@
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\bin\Release\netcoreapp2.0\KaraokeClient.deps.json
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\bin\Release\netcoreapp2.0\KaraokeClient.runtimeconfig.json
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\bin\Release\netcoreapp2.0\KaraokeClient.runtimeconfig.dev.json
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\bin\Release\netcoreapp2.0\KaraokeClient.dll
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\bin\Release\netcoreapp2.0\KaraokeClient.pdb
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\bin\Release\netcoreapp2.0\LeDragueCoreObjects.dll
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\bin\Release\netcoreapp2.0\LeDragueCoreObjects.pdb
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\obj\Release\netcoreapp2.0\KaraokeClient.csprojResolveAssemblyReference.cache
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\obj\Release\netcoreapp2.0\KaraokeClient.csproj.CoreCompileInputs.cache
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\obj\Release\netcoreapp2.0\KaraokeClient.AssemblyInfoInputs.cache
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\obj\Release\netcoreapp2.0\KaraokeClient.AssemblyInfo.cs
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\obj\Release\netcoreapp2.0\KaraokeClient.dll
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\obj\Release\netcoreapp2.0\KaraokeClient.pdb
