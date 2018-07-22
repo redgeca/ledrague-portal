@@ -1,10 +1,10 @@
-C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient
+C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient
 --output-path=obj\Release\netcoreapp2.0\
 --application-name=KaraokeClient
---content-root=C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient
---file=C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\Views\Home\Index.cshtml
---file=C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\Views\Home\NotStarted.cshtml
---file=C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\Views\Shared\_Layout.cshtml
---file=C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\Views\Shared\_ValidationScriptsPartial.cshtml
---file=C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\Views\_ViewImports.cshtml
---file=C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\KaraokeClient\Views\_ViewStart.cshtml
+--content-root=C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient
+--file=C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient\Views\Home\Index.cshtml
+--file=C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient\Views\Home\NotStarted.cshtml
+--file=C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient\Views\Shared\_Layout.cshtml
+--file=C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient\Views\Shared\_ValidationScriptsPartial.cshtml
+--file=C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient\Views\_ViewImports.cshtml
+--file=C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\KaraokeClient\Views\_ViewStart.cshtml

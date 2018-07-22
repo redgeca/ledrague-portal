@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\rcaron.ORADEV\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\rcaron.ORADEV\\.nuget\\packages",
+      "C:\\Users\\Bar Le Drague\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Bar Le Drague\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }

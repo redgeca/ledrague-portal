@@ -5601,7 +5601,7 @@
       ]
     },
     "Microsoft.AspNetCore.Mvc/2.0.0": {
-      "sha512": "MfC29S9Joot3JU8Ytz4dNuTBv//q6IkNEV7S83uPhO/V1udoqOk+N2wZOero9XGhv9y2JXAZPbYNQk0t39qtpQ==",
+      "sha512": "9KmSDGw3XXosv3+c7TX8An91ya+jtzbAuquHVp6t/qB1CA+MZI7r2d6n3dvUZUcKbrpmB8cfbvzbeEGv/QKp3Q==",
       "type": "package",
       "path": "microsoft.aspnetcore.mvc/2.0.0",
       "files": [
@@ -5995,7 +5995,7 @@
       ]
     },
     "Microsoft.AspNetCore.StaticFiles/2.0.0": {
-      "sha512": "HF0GpUkAcVaTGHy0mYs7h8Kjd1RTyichNNkweY59fZkqHIwiT0rGjOfB0X8s3i9kEv3ZXa4Bq8HWE0UhR3P2Ow==",
+      "sha512": "HBMJQ1WPdHO0thltwi7agvfis3c1Kd5HFQDgyy0nV3X4mJvhVGUnymT0+QQU+GGNK9FG/uEQNE3YDSrrBamP7w==",
       "type": "package",
       "path": "microsoft.aspnetcore.staticfiles/2.0.0",
       "files": [
@@ -6371,7 +6371,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Design/2.0.0": {
-      "sha512": "eGKgEoVIXPlTGX8Ekz+cWiVeHKSXlK8gU41BVqJrkwi6W/EiKl0SgqJJPA0LY+oIudEY4+BikNtkhbVSyQpRhA==",
+      "sha512": "v8e4OwmK+BIm7jINmGJaQz1+r6BiFl+bGJNVUF4JQZ9H40keeTIHEgKDxdEr+24EdllfLLKTisEziq1H089TYg==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.design/2.0.0",
       "files": [
@@ -6426,7 +6426,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.SqlServer/2.0.0": {
-      "sha512": "+OtRm26gVPxHXS5bnuq5W34ZtdwLERqrqe8haiu4FLAoUFNjdDKKuYjA/v1v5idSnXxWyqDwtjxZpXuvJIAeHQ==",
+      "sha512": "mr+S07kAKXsdu9207w1ek4O1/0+y5925kMYy7gCqu15QpvfVXOLdAR0b9RQfBxmtAJPrYx6/KtfvAg70jm5zUA==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.sqlserver/2.0.0",
       "files": [
@@ -6437,7 +6437,7 @@
       ]
     },
     "Microsoft.EntityFrameworkCore.Tools/2.0.0": {
-      "sha512": "2Kmln/sVoO3L2CmpGQhhGTingCaBUL4v4mx/WqbDvUPPCopUtfNOZidQS7es6/c7kErSM2zzoW1iCRdQ2bm4RQ==",
+      "sha512": "ILVI7sbnD0Pgf6B90AL3RiRdq+XRXEG4VnvuD75Fluv6p5PbYfU2tQP2VlL0oAFCVhihSgSWIQHtDjUFEE0+nw==",
       "type": "package",
       "path": "microsoft.entityframeworkcore.tools/2.0.0",
       "files": [
@@ -6840,7 +6840,7 @@
       ]
     },
     "Microsoft.Extensions.Logging.Debug/2.0.0": {
-      "sha512": "DOy64RViS9S/mxx/SQOrM/rKj7LuGHqJw6aUd/64kSxXjigYxvo+uwUefmdHpz17ByddoQ+0nMVOXV4ISzXjcQ==",
+      "sha512": "29Zn5m9yb4NEP+qbeLl+7F2lDskDfrs8NbrM8eJ+k/pYE8JksRUEFxHp1bcpGSfGP9w0pMQMOKrVcwD3u5sPog==",
       "type": "package",
       "path": "microsoft.extensions.logging.debug/2.0.0",
       "files": [
@@ -7610,7 +7610,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.BrowserLink/2.0.0": {
-      "sha512": "6Rt5SczzU/26wYA+6SNhR4IPLxmZQatILc0IS0jmfUKIXEsEvWaRh/fQu0lujh8nkuwlTnlijvMSnZlOLwQ0ZA==",
+      "sha512": "+iLi1BBW/52xtKPYITk1jJSD0sJCHYy5dbOjSQZiZjnqPGjuo2LAfhz//rYAzYbyKq+kH1CO763ViGcdsMvFbA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.browserlink/2.0.0",
       "files": [
@@ -7654,7 +7654,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.0.0": {
-      "sha512": "Pok114Lzc/2DxLBAYq/EFdlzJ79Te9Rko9sVZuib3lI6eVLXRrDAq+YkdmQEJLQrnwNCNj3+VjnJEglgKrWx0g==",
+      "sha512": "14dGqnnOnNxKGrGZKFQGGzMDtQ23WVuIOZkcH5KE0LeHEhjc+9u8raAiFhXnRu8P/PHpXjbcgW/Zdq71sSqnlg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.design/2.0.0",
       "files": [
@@ -7949,7 +7949,7 @@
       ]
     },
     "Newtonsoft.Json/10.0.3": {
-      "sha512": "wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
+      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
       "type": "package",
       "path": "newtonsoft.json/10.0.3",
       "files": [
@@ -13118,26 +13118,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rcaron.ORADEV\\.nuget\\packages\\": {},
+    "C:\\Users\\Bar Le Drague\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\ledrague-portal\\leDraguePortal.csproj",
-      "projectName": "leDraguePortal",
-      "projectPath": "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\ledrague-portal\\leDraguePortal.csproj",
-      "packagesPath": "C:\\Users\\rcaron.ORADEV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\ledrague-portal\\obj\\",
+      "projectUniqueName": "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\ledrague-portal\\leDraguePortal.csproj",
+      "projectName": "LeDraguePortal",
+      "projectPath": "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\ledrague-portal\\leDraguePortal.csproj",
+      "packagesPath": "C:\\Users\\Bar Le Drague\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\ledrague-portal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\rcaron.ORADEV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Bar Le Drague\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13150,8 +13147,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj": {
-              "projectPath": "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj"
+            "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj": {
+              "projectPath": "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj"
             }
           }
         }
@@ -13165,24 +13162,24 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "Microsoft.EntityFrameworkCore.Tools": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0"
+            "version": "[2.0.0, )"
+          },
+          "Microsoft.NETCore.App": {
+            "target": "Package",
+            "version": "[2.0.0, )",
+            "autoReferenced": true
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
-          },
-          "Microsoft.AspNetCore.All": {
-            "target": "Package",
-            "version": "2.0.0"
+            "version": "[2.0.0, )"
           }
         },
         "imports": [

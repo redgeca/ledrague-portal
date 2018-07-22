@@ -1353,7 +1353,7 @@
       ]
     },
     "Newtonsoft.Json/10.0.3": {
-      "sha512": "wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
+      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
       "type": "package",
       "path": "newtonsoft.json/10.0.3",
       "files": [
@@ -3565,26 +3565,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rcaron.ORADEV\\.nuget\\packages\\": {},
+    "C:\\Users\\Bar Le Drague\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj",
+      "projectUniqueName": "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj",
       "projectName": "LeDragueCoreObjects",
-      "projectPath": "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj",
-      "packagesPath": "C:\\Users\\rcaron.ORADEV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rcaron.ORADEV\\Source\\Repos\\ledrague-portal\\ledrague-portal\\LeragueCoreObjects\\obj\\",
+      "projectPath": "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\LeragueCoreObjects\\LeDragueCoreObjects.csproj",
+      "packagesPath": "C:\\Users\\Bar Le Drague\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bar Le Drague\\Source\\Repos\\ledrague-portal2\\ledrague-portal\\LeragueCoreObjects\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\rcaron.ORADEV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Bar Le Drague\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3611,12 +3608,12 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.0.0",
+            "version": "[2.0.0, )",
             "autoReferenced": true
           },
           "Newtonsoft.Json": {
             "target": "Package",
-            "version": "10.0.3"
+            "version": "[10.0.3, )"
           }
         },
         "imports": [

@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v2.0": {
       "LeDragueCoreObjects/1.0.0": {
         "dependencies": {
-          "Newtonsoft.Json": "10.0.3",
-          "Microsoft.Extensions.Identity.Stores": "2.0.0.0"
+          "Newtonsoft.Json": "10.0.3"
         },
         "runtime": {
           "LeDragueCoreObjects.dll": {}
@@ -45,7 +44,10 @@
           "System.Xml.XmlDocument": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Newtonsoft.Json.dll": {}
+          "lib/netstandard1.3/Newtonsoft.Json.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.3.21018"
+          }
         }
       },
       "System.Collections/4.3.0": {
@@ -387,11 +389,6 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
-      },
-      "Microsoft.Extensions.Identity.Stores/2.0.0.0": {
-        "runtime": {
-          "Microsoft.Extensions.Identity.Stores.dll": {}
-        }
       }
     }
   },
@@ -418,7 +415,7 @@
     "Newtonsoft.Json/10.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wBM7i7i3U2WX0ecor4zdVGvgrwFUjuigBoHKiL+nH39fCOpCPjBY3RDqJM32edvdyTAVdjzlccHsg41+/+zpSA==",
+      "sha512": "sha512-hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
       "path": "newtonsoft.json/10.0.3",
       "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
     },
@@ -687,11 +684,6 @@
       "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Identity.Stores/2.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }
