@@ -3213,6 +3213,7 @@
       },
       "LeDragueCoreObjects/1.0.0": {
         "dependencies": {
+          "Lucene.Net": "3.0.3",
           "Newtonsoft.Json": "10.0.3"
         },
         "runtime": {

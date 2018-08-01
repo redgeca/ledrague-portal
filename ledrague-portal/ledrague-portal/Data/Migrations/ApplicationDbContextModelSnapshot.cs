@@ -327,15 +327,11 @@ namespace ledrague_portal.Data.Migrations
 
                     b.Property<int>("ArtistId");
 
-                    b.Property<int>("CategoryId");
-
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ArtistId");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("KaraokeSongs");
                 });
@@ -517,11 +513,6 @@ namespace ledrague_portal.Data.Migrations
                     b.HasOne("LeDragueCoreObjects.Karaoke.Artist", "Artist")
                         .WithMany("Songs")
                         .HasForeignKey("ArtistId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("LeDragueCoreObjects.Karaoke.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

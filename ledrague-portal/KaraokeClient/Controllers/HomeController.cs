@@ -68,7 +68,6 @@ namespace KaraokeClient.Controllers
         [HttpGet]
         public ActionResult KeywordSearch(string term)
         {
-            logger.LogCritical("Houston2");
             Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
 
             // Perform a search

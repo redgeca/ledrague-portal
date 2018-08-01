@@ -8,7 +8,6 @@ C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreO
 C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.AssemblyInfo.cs
 C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.dll
 C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.pdb
-C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.csprojResolveAssemblyReference.cache
 C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\LeragueCoreObjects\bin\Debug\netcoreapp2.0\LeDragueCoreObjects.deps.json
 C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\LeragueCoreObjects\bin\Debug\netcoreapp2.0\LeDragueCoreObjects.dll
 C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\LeragueCoreObjects\bin\Debug\netcoreapp2.0\LeDragueCoreObjects.pdb
@@ -18,3 +17,4 @@ C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\LeragueCore
 C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.AssemblyInfo.cs
 C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.dll
 C:\Users\Bar Le Drague\Source\Repos\ledrague-portal2\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.pdb
+C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeDragueCoreObjects.csprojResolveAssemblyReference.cache
