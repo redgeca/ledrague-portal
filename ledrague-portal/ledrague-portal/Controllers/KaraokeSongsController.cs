@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ledrague_portal.Data;
 using LeDraguePortal.utils;
 using LeDragueCoreObjects.Karaoke;
+using LeDragueCoreObjects.lucene;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -32,6 +33,11 @@ namespace leDraguePortal.Controllers
                     .Include(cs => cs.CategorySongs)
                     .ThenInclude(cat => cat.Category);
 
+            if (filter != null && !filter.Equals("null"))
+            {
+                Searcher searcher = new Searcher();
+                songs = songs.Where(s => searcher.searchTitles(filter).Contains(s.Id));
+            }
 //            var ids = new int[] { 11484, 20662, 21720 };
 //            songs = songs.Where(s => ids.Contains(s.Id));
 
@@ -46,8 +52,16 @@ namespace leDraguePortal.Controllers
 
             switch (orderBy)
             {
-                case "desc":
+                case "title_desc":
                     songs = songs.OrderByDescending(cs => cs.Title).ThenBy(cs => cs.Artist.Name);
+                    break;
+
+                case "artist_asc":
+                    songs = songs.OrderBy(cs => cs.Artist.Name).ThenBy(cs => cs.Title);
+                    break;
+
+                case "artist_desc":
+                    songs = songs.OrderByDescending(cs => cs.Artist.Name).ThenBy(cs => cs.Title);
                     break;
 
                 default:
@@ -57,11 +71,6 @@ namespace leDraguePortal.Controllers
 
 
             PaginatedList<Song> resultSongs = await PaginatedList<Song>.CreateAsync(songs.AsNoTracking(), page ?? 1, pageSize ?? 25);
-
-            //            List<Object> result = new List<Object>();
-            //            result.Add(new Count(resultSongs.TotalItems));
-            //            result.Add(resultSongs);
-
             var jsonObject = new
             {
                 count = resultSongs.TotalItems,

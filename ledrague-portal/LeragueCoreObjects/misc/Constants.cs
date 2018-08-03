@@ -16,6 +16,8 @@ namespace LeDragueCoreObjects.misc
 
         public const String CATEGORY_FIELD = "Category";
 
+        public const String ID = "Id";
+
         public const string KARAOKE_STATE_FLAG = "KaraokeState";
 
         public const string RUNNING_FLAG = "RUNNING";
