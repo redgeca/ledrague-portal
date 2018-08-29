@@ -22,6 +22,7 @@ namespace KaraokeClient
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +40,7 @@ namespace KaraokeClient
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseCors("localhost:99");
 
             app.UseMvc(routes =>
             {
