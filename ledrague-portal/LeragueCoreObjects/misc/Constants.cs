@@ -13,10 +13,12 @@ namespace LeDragueCoreObjects.misc
         public const String TITLE_FIELD = "Title";
 
         public const String ARTIST_FIELD = "Artist";
+        public const String ARTIST_ID_FIELD = "ArtistId";
 
         public const String CATEGORY_FIELD = "Category";
+        public const String CATEGORY_ID_FIELD = "CategoryId";
 
-        public const String ID = "Id";
+        public const String SONG_ID_FIELD = "SongId";
 
         public const string KARAOKE_STATE_FLAG = "KaraokeState";
 

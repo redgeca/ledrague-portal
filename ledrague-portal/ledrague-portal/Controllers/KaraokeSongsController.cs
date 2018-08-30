@@ -29,26 +29,20 @@ namespace leDraguePortal.Controllers
             int? artistId, int? categoryId)
         {
             IQueryable<Song> songs = dbContext.KaraokeSongs
-                    .Include(cs => cs.Artist)
-                    .Include(cs => cs.CategorySongs)
-                    .ThenInclude(cat => cat.Category);
+                   .Include(cs => cs.Artist)
+                   .Include(cs => cs.CategorySongs)
+                   .ThenInclude(cat => cat.Category);
 
             if (filter != null && !filter.Equals("null"))
             {
                 Searcher searcher = new Searcher();
                 songs = songs.Where(s => searcher.searchTitles(filter).Contains(s.Id));
             }
-//            var ids = new int[] { 11484, 20662, 21720 };
-//            songs = songs.Where(s => ids.Contains(s.Id));
 
             if (artistId != null)
             {
                 songs = songs.Where(a => a.ArtistId == artistId);
             }
-//            else if (categoryId != null)
-//            {
-//                songs = songs.Where(c => c.CategorySongs.Contains(categoryId ?? 0));
-//            }
 
             switch (orderBy)
             {

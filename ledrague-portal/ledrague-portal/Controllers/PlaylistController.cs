@@ -55,7 +55,7 @@ namespace leDraguePortal.Controllers
         {
             Playlist request = dbContext.KaraokePlaylists.Where(s => s.Id == id).FirstOrDefault();
 
-            if (pNewPosition < 1)
+            if (pNewPosition < 0)
             {
                 return BadRequest("Invalid position");
             }
@@ -68,6 +68,11 @@ namespace leDraguePortal.Controllers
 
             // Position cannot be greater than count play song
             int totalCount = dbContext.KaraokePlaylists.Where(p => p.IsDone == 0).Count();
+
+            if (totalCount > 0)
+            {
+                totalCount = totalCount - 1;
+            }
             if (pNewPosition > totalCount)
             {
                 pNewPosition = totalCount;
@@ -123,6 +128,7 @@ namespace leDraguePortal.Controllers
 
             // Position cannot be greater than count play song + 1
             int totalCount = dbContext.KaraokePlaylists.Where(p => p.IsDone == 0).Count();
+
             if (pPosition <= 0 || pPosition > totalCount)
             {
                 pPosition = totalCount;

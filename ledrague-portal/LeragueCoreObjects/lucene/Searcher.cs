@@ -8,6 +8,7 @@ using Lucene.Net.Store;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LeDragueCoreObjects.lucene
 {
@@ -53,30 +54,45 @@ namespace LeDragueCoreObjects.lucene
             return query;
         }
 
-        private BooleanQuery getPrefixQuery(String pTerm, Analyzer pAnalyzer)
+        private BooleanQuery getPrefixQuery(String pTerm, String pField, Analyzer pAnalyzer)
         {
             BooleanQuery termQuery = new BooleanQuery();
-            termQuery.Add(getPrefixQuery(Constants.TITLE_FIELD, 15, pTerm, pAnalyzer), Occur.SHOULD);
+            termQuery.Add(getPrefixQuery(pField, 15, pTerm, pAnalyzer), Occur.SHOULD);
 
             return termQuery;
         }
 
         public List<int> searchTitles(String pTerm)
         {
+            return search(pTerm, Constants.TITLE_FIELD, Constants.SONG_ID_FIELD);
+        }
+
+        public List<int> searchArtist(String pTerm)
+        {
+            return search(pTerm, Constants.ARTIST_FIELD, Constants.ARTIST_ID_FIELD);
+        }
+
+        public List<int> searchCategories(String pTerm) {
+            return search(pTerm, Constants.CATEGORY_FIELD, Constants.CATEGORY_ID_FIELD);
+        }
+
+        public List<int> search(String pTerm, String pField, String pIdField)
+        {
             Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
 
+            String filteredTerm = Regex.Replace(pTerm, "!@#$%?&*()\\'\"", " ");
             // Perform a search
             var searcher = getSearcher();
             BooleanQuery finalQuery = new BooleanQuery();
 
-            finalQuery.Add(getPrefixQuery(pTerm, analyzer), Occur.SHOULD);
+            finalQuery.Add(getPrefixQuery(filteredTerm, pField, analyzer), Occur.SHOULD);
             ScoreDoc[] hits = searcher.Search(finalQuery, null, int.MaxValue, Sort.RELEVANCE).ScoreDocs;
 
             List<int> results = new List<int>();
             foreach (ScoreDoc hit in hits)
             {
                 var document = searcher.IndexReader.Document(hit.Doc);
-                results.Add(int.Parse(document.Get(Constants.ID)));
+                results.Add(int.Parse(document.Get(pIdField)));
             }
 
             return results;

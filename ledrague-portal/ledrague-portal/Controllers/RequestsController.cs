@@ -96,5 +96,24 @@ namespace leDraguePortal.Controllers
 
             return Ok(newRequest);
         }
+
+        [HttpDelete]
+        public ActionResult DeleteRequest(int id)
+        {
+            Request entry = dbContext.KaraokeRequests
+                .Where(p => p.Id == id).FirstOrDefault();
+
+            if (entry == null)
+            {
+                return BadRequest("Entry doesn't exist in Requests");
+            }
+
+            dbContext.KaraokeRequests.Remove(entry);
+
+            dbContext.SaveChanges();
+
+            return Ok();
+        }
+
     }
 }

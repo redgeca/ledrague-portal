@@ -7,6 +7,7 @@ using ledrague_portal.Data;
 using LeDragueCoreObjects.Karaoke;
 using Microsoft.EntityFrameworkCore;
 using LeDraguePortal.utils;
+using LeDragueCoreObjects.lucene;
 
 namespace leDraguePortal.Controllers
 {
@@ -25,12 +26,18 @@ namespace leDraguePortal.Controllers
         [HttpGet("byPage")]
         public async Task<IActionResult> Get(String filter, String orderBy, int? page, int? pageSize)
         {
-            IQueryable<Category> categories = dbContext.KaraokeCategories
-                .Include(c => c.CategorySongs);
+            IQueryable<Category> categories = dbContext.KaraokeCategories;
+//                .Include(c => c.CategorySongs);
+
+            if (filter != null && !filter.Equals("null"))
+            {
+                Searcher searcher = new Searcher();
+                categories = categories.Where(s => searcher.searchCategories(filter).Contains(s.Id));
+            }
 
             switch (orderBy)
             {
-                case "desc":
+                case "name_desc":
                     categories = categories.OrderByDescending(cs => cs.Name);
                     break;
 
