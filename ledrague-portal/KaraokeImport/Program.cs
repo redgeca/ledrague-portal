@@ -186,20 +186,24 @@ namespace KaraokeImport
         private static Document getSongDocument(Song pSong)
         {
             Document luceneDocument = new Document();
-            Field idField = new Field("Id", pSong.Id.ToString(), Field.Store.YES, Field.Index.ANALYZED);
-            Field titleField = new Field("Title", pSong.Title, Field.Store.YES, Field.Index.ANALYZED);
-            Field artistField = new Field("Artist", pSong.Artist == null ? "" : pSong.Artist.Name, Field.Store.YES, Field.Index.ANALYZED);
+            Field idField = new Field(Constants.SONG_ID_FIELD, pSong.Id.ToString(), Field.Store.YES, Field.Index.ANALYZED);
+            Field titleField = new Field(Constants.TITLE_FIELD, pSong.Title, Field.Store.YES, Field.Index.ANALYZED);
+            Field artistField = new Field(Constants.ARTIST_FIELD, pSong.Artist == null ? "" : pSong.Artist.Name, Field.Store.YES, Field.Index.ANALYZED);
+            Field artistIdField = new Field(Constants.ARTIST_ID_FIELD, pSong.Artist == null ? "" : pSong.Artist.Id.ToString(), Field.Store.YES, Field.Index.ANALYZED);
 
             List<Field> categoryFields = new List<Field>();
 
             foreach(CategorySong categorySong in pSong.CategorySongs)
             {
-                Field categoryField = new Field("Category", 
+                Field categoryField = new Field(Constants.CATEGORY_FIELD,
                     categorySong.Category == null ? "" : categorySong.Category.Name, Field.Store.YES, Field.Index.ANALYZED);
+                Field categoryIdField = new Field(Constants.CATEGORY_ID_FIELD,
+                    categorySong.Category == null ? "" : categorySong.Category.Id.ToString(), Field.Store.YES, Field.Index.ANALYZED);
                 categoryField.Boost = 1;
                 categoryFields.Add(categoryField);
+                categoryFields.Add(categoryIdField);
             }
-            
+
             titleField.Boost = 5;
             artistField.Boost = 3;
 
@@ -210,6 +214,7 @@ namespace KaraokeImport
                 luceneDocument.Add(field);
             }
             luceneDocument.Add(artistField);
+            luceneDocument.Add(artistIdField);
 
             return luceneDocument;
         }
