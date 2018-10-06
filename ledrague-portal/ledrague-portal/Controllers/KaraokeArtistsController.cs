@@ -23,7 +23,7 @@ namespace leDraguePortal.Controllers
         }
 
         // GET: api/KaraokeState
-        [HttpGet("byPage")]
+        [HttpGet]
         public async Task<IActionResult> Get(String filter, String orderBy, int? page, int? pageSize)
         {
             IQueryable<Artist> artists = dbContext.KaraokeArtists;
@@ -45,7 +45,24 @@ namespace leDraguePortal.Controllers
                     break;
             }
 
-            return Ok(await PaginatedList<Artist>.CreateAsync(artists.AsNoTracking(), page ?? 1, pageSize ?? 25));
+            PaginatedList<Artist> resultArtists = await PaginatedList<Artist>.CreateAsync(artists.AsNoTracking(), page ?? 1, pageSize ?? 25);
+
+            Request.HttpContext.Response.Headers.Add("X-Total-Count", resultArtists.TotalItems.ToString());
+            return new JsonResult(resultArtists);
+        }
+
+        // GET: api/KaraokeState
+        [HttpGet("{id}")]
+        public ActionResult Get(Int32 id)
+        {
+            var artist = dbContext.KaraokeArtists
+                 .Include(a => a.Songs).Where(a => a.Id == id)
+                 .OrderBy(ars => ars.Songs.Select(s => s.Title)).FirstOrDefault();
+            if (artist == null)
+            {
+                return BadRequest("Invalid Artist");
+            }
+            return new JsonResult(artist);
         }
     }
 }

@@ -129,7 +129,7 @@ namespace leDraguePortal.Controllers
             // Position cannot be greater than count play song + 1
             int totalCount = dbContext.KaraokePlaylists.Where(p => p.IsDone == 0).Count();
 
-            if (pPosition <= 0 || pPosition > totalCount)
+            if (pPosition < 0 || pPosition > totalCount)
             {
                 pPosition = totalCount;
             }

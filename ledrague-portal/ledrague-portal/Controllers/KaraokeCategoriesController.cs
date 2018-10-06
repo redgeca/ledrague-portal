@@ -23,7 +23,7 @@ namespace leDraguePortal.Controllers
         }
 
         // GET: api/KaraokeState
-        [HttpGet("byPage")]
+        [HttpGet]
         public async Task<IActionResult> Get(String filter, String orderBy, int? page, int? pageSize)
         {
             IQueryable<Category> categories = dbContext.KaraokeCategories;
@@ -46,7 +46,26 @@ namespace leDraguePortal.Controllers
                     break;
             }
 
-            return Ok(await PaginatedList<Category>.CreateAsync(categories.AsNoTracking(), page ?? 1, pageSize ?? 25));
+            PaginatedList<Category> resultCategories = await PaginatedList<Category>.CreateAsync(categories.AsNoTracking(), page ?? 1, pageSize ?? 25);
+
+            Request.HttpContext.Response.Headers.Add("X-Total-Count", resultCategories.TotalItems.ToString());
+            return new JsonResult(resultCategories);
         }
+
+        // GET: api/KaraokeCategories/{id}
+        [HttpGet("{id}")]
+        public ActionResult Get(Int32 id)
+        {
+            var category = dbContext.KaraokeCategories
+                 .Include(c => c.CategorySongs).ThenInclude(cs => cs.Song).Where(c => c.Id == id)
+                 .OrderBy(cs => cs.CategorySongs.Select(s => s.Song.Title)).FirstOrDefault();
+
+            if (category == null)
+            {
+                return BadRequest("Invalid Category");
+            }
+            return new JsonResult(category);
+        }
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿{
-  "name": "Progressive Web App",
-  "short_name": "PWA",
-  "description": "Creating PWA in ASP.NET Core.",
+  "name": "Le Drague Karaoké",
+  "short_name": "Karaoké",
+  "description": "Le Drague Karaoké - Clients.",
   "icons": [
     {
       "src": "/images/icon192x192.png",
