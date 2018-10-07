@@ -67,5 +67,64 @@ namespace leDraguePortal.Controllers
             return new JsonResult(category);
         }
 
+        [HttpPost]
+        public ActionResult AddCategory([FromBody] String name)
+        {
+            Category category = dbContext.KaraokeCategories
+                .Where(c => c.Name.ToLower().Equals(name.ToLower())).FirstOrDefault();
+
+            if (category == null)
+            {
+                category = new Category();
+                category.Name = name;
+                dbContext.KaraokeCategories.Add(category);
+
+                dbContext.SaveChanges();
+
+                return Json(category);
+            }
+            return BadRequest("Category already exist");
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult UpdateCategory(Int32 id, [FromBody] String name)
+        {
+            Category category = dbContext.KaraokeCategories
+                .Where(c => c.Id == id).FirstOrDefault();
+
+            if (category == null)
+            {
+                return BadRequest("Category already exist");
+            }
+
+            category.Name = name;
+            dbContext.SaveChanges();
+
+            return Json(category);
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult delete(Int32 id)
+        {
+            Category category = dbContext.KaraokeCategories
+                .Include(c => c.CategorySongs)
+                .Where(c => c.Id == id).FirstOrDefault();
+
+            if (category == null)
+            {
+                return BadRequest("Category does not exist");
+            }
+
+            if (category.CategorySongs.Count > 0)
+            {
+                return BadRequest("Category is associated with songs");
+            }
+
+            dbContext.KaraokeCategories.Remove(category);
+            dbContext.SaveChanges();
+
+            return Ok();
+
+        }
     }
 }

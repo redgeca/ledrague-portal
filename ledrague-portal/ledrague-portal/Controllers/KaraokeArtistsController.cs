@@ -64,5 +64,63 @@ namespace leDraguePortal.Controllers
             }
             return new JsonResult(artist);
         }
+
+        public ActionResult AddArtist([FromBody] String name)
+        {
+            Artist artist = dbContext.KaraokeArtists
+                .Where(a => a.Name.ToLower().Equals(name.ToLower())).FirstOrDefault();
+
+            if (artist == null)
+            {
+                artist = new Artist();
+                artist.Name = name;
+                dbContext.KaraokeArtists.Add(artist);
+
+                dbContext.SaveChanges();
+
+                return Json(artist);
+            }
+            return BadRequest("Artist already exist");
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult UpdateArtist(Int32 id, [FromBody] String name)
+        {
+            Artist artist= dbContext.KaraokeArtists
+                .Where(a => a.Id == id).FirstOrDefault();
+
+            if (artist == null)
+            {
+                return BadRequest("Artist already exist");
+            }
+
+            artist.Name = name;
+            dbContext.SaveChanges();
+
+            return Json(artist);
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult delete(Int32 id)
+        {
+            Artist artist = dbContext.KaraokeArtists
+                .Include(a => a.Songs)
+                .Where(c => c.Id == id).FirstOrDefault();
+
+            if (artist== null)
+            {
+                return BadRequest("Artist does not exist");
+            }
+
+            if (artist.Songs.Count > 0)
+            {
+                return BadRequest("Artist is associated with songs and cannot be deleted");
+            }
+
+            dbContext.KaraokeArtists.Remove(artist);
+            dbContext.SaveChanges();
+
+            return Ok();
+        }
     }
 }

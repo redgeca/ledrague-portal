@@ -106,7 +106,7 @@ namespace leDraguePortal.Controllers
             Configuration state = dbContext.Configurations.Where(c => c.key == Constants.KARAOKE_STATE_FLAG).FirstOrDefault();
 
             if (state.value.Equals(Constants.STOPPED_FLAG)) {
-                return BadRequest("Le karaoké n'est pas en fonction.  On ne peux pas demander de chansons pour le moment");
+                return BadRequest("Le karaoké n'est pas en fonction.  Vous ne peux pas demander de chansons pour le moment.");
             }
             try
             {
