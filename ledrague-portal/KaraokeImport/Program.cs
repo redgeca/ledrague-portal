@@ -186,7 +186,7 @@ namespace KaraokeImport
         private static Document getSongDocument(Song pSong)
         {
             Document luceneDocument = new Document();
-            Field idField = new Field(Constants.SONG_ID_FIELD, pSong.Id.ToString(), Field.Store.YES, Field.Index.ANALYZED);
+            Field idField = new Field(Constants.SONG_ID_FIELD, pSong.Id.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED);
             Field titleField = new Field(Constants.TITLE_FIELD, pSong.Title, Field.Store.YES, Field.Index.ANALYZED);
             Field artistField = new Field(Constants.ARTIST_FIELD, pSong.Artist == null ? "" : pSong.Artist.Name, Field.Store.YES, Field.Index.ANALYZED);
             Field artistIdField = new Field(Constants.ARTIST_ID_FIELD, pSong.Artist == null ? "" : pSong.Artist.Id.ToString(), Field.Store.YES, Field.Index.ANALYZED);

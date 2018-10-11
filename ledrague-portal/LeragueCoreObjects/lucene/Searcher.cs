@@ -80,7 +80,7 @@ namespace LeDragueCoreObjects.lucene
         {
             Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
 
-            String filteredTerm = Regex.Replace(pTerm, "!@#$%?&*()\\'\"", " ");
+            String filteredTerm = Regex.Replace(pTerm, "'!@#$%?&*()\\'\"", " ");
             // Perform a search
             var searcher = getSearcher();
             BooleanQuery finalQuery = new BooleanQuery();
@@ -127,13 +127,16 @@ namespace LeDragueCoreObjects.lucene
         {
             Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
 
+            String filteredTerm = Regex.Replace(term, "'!@#$%?&*()\\'\"", " ");
+            filteredTerm = Regex.Replace(filteredTerm, "'", " ");
+
             // Perform a search
             var searcher = getSearcher();
             var hits_limit = 50;
 
             BooleanQuery finalQuery = new BooleanQuery();
 
-            finalQuery.Add(getPrefixQueryAllFields(term, analyzer), Occur.SHOULD);
+            finalQuery.Add(getPrefixQueryAllFields(filteredTerm, analyzer), Occur.SHOULD);
             searcher.SetDefaultFieldSortScoring(true, true);
 
             ScoreDoc[] hits = searcher.Search(finalQuery, null, hits_limit, Sort.RELEVANCE).ScoreDocs;
@@ -142,7 +145,7 @@ namespace LeDragueCoreObjects.lucene
             scoreDocs.AddRange(hits);
             if (hits.Length < hits_limit)
             {
-                ScoreDoc[] fuzzyHits = searcher.Search(getFuzzyQuery(term, analyzer), null, hits_limit, Sort.RELEVANCE).ScoreDocs;
+                ScoreDoc[] fuzzyHits = searcher.Search(getFuzzyQuery(filteredTerm, analyzer), null, hits_limit, Sort.RELEVANCE).ScoreDocs;
                 scoreDocs.AddRange(fuzzyHits);
             }
 
