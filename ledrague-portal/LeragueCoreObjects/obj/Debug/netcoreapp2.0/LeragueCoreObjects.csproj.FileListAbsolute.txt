@@ -1,5 +1,0 @@
-C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\bin\Debug\netcoreapp2.0\LeragueCoreObjects.deps.json
-C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\bin\Debug\netcoreapp2.0\LeragueCoreObjects.dll
-C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeragueCoreObjects.csproj.CoreCompileInputs.cache
-C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeragueCoreObjects.AssemblyInfoInputs.cache
-C:\Users\rcaron.ORADEV\Source\Repos\ledrague-portal\ledrague-portal\LeragueCoreObjects\obj\Debug\netcoreapp2.0\LeragueCoreObjects.AssemblyInfo.cs
