@@ -100,15 +100,22 @@ namespace leDraguePortal.Controllers
             return BadRequest("Filter cannot be null of empty");
         }
 
+        [HttpGet("searchArtist")]
+        public ActionResult searchArtist(String artist)
+        {
+            Searcher searcher = new Searcher();
+            return Json(searcher.searchArtistName(artist));
+        }
+
         [HttpGet("searchByArtist")]
         public ActionResult search(String artist, String filter)
         {
-                Searcher searcher = new Searcher();
-                return Json(searcher.KeywordSearch(artist, filter));
+            Searcher searcher = new Searcher();
+            return Json(searcher.KeywordSearch(artist, filter));
         }
 
         [HttpPost("request")]
-        public ActionResult request(String title, String singer, String notes)
+        public ActionResult request(int id, String singer, String notes)
         {
             Configuration state = dbContext.Configurations.Where(c => c.key == Constants.KARAOKE_STATE_FLAG).FirstOrDefault();
 
@@ -117,10 +124,7 @@ namespace leDraguePortal.Controllers
             }
             try
             {
-                string[] fields = title.Trim().Split(" par ");
-                String query = fields[0] + fields[1];
-                Artist artist = (Artist)dbContext.KaraokeArtists.Where(a => a.Name.ToLower() == fields[1].ToLower()).First();
-                Song song = (Song)dbContext.KaraokeSongs.Where(s => s.Title.ToLower() == fields[0].ToLower() && s.ArtistId == artist.Id).First();
+                Song song = (Song)dbContext.KaraokeSongs.Where(s => s.Id == id).First();
                 if (song != null)
                 {
                     Request request = new Request();

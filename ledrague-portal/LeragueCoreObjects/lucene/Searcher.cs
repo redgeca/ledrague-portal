@@ -72,6 +72,34 @@ namespace LeDragueCoreObjects.lucene
             return search(pTerm, Constants.ARTIST_FIELD, Constants.ARTIST_ID_FIELD);
         }
 
+        public List<String> searchArtistName(String pTerm)
+        {
+            Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
+
+            String filteredTerm = Regex.Replace(pTerm, "'!@#$%?&*()\\'\"", " ");
+            // Perform a search
+            var searcher = getSearcher();
+            BooleanQuery finalQuery = new BooleanQuery();
+
+            finalQuery.Add(getPrefixQuery(filteredTerm, Constants.ARTIST_FIELD, analyzer), Occur.SHOULD);
+            searcher.SetDefaultFieldSortScoring(true, true);
+
+            ScoreDoc[] hits = searcher.Search(finalQuery, null, 250, Sort.RELEVANCE).ScoreDocs;
+//            hits.Sort(x, y) => y.Score.CompareTo(x.Score));
+
+            List<String> results = new List<String>();
+            foreach (ScoreDoc hit in hits)
+            {
+                var document = searcher.IndexReader.Document(hit.Doc);
+                String name = document.Get(Constants.ARTIST_FIELD);
+                if (!results.Contains(name)) {
+                    results.Add(name);
+                }
+            }
+
+            return results;
+        }
+
         public List<int> searchCategories(String pTerm) {
             return search(pTerm, Constants.CATEGORY_FIELD, Constants.CATEGORY_ID_FIELD);
         }
