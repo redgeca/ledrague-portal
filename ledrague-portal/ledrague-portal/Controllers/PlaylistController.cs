@@ -159,7 +159,6 @@ namespace leDraguePortal.Controllers
         }
 
         //        [Authorize(Roles="admin,DJ,animation")]
-        [HttpDelete]
         public ActionResult MarkAsDone(int id, [FromBody] string pDelete)
         {
             Playlist entry = dbContext.KaraokePlaylists
@@ -195,6 +194,13 @@ namespace leDraguePortal.Controllers
 
             dbContext.SaveChanges();
             return Ok();
+        }
+
+        
+        [HttpDelete]
+        public ActionResult Delete(int id, String delete)
+        {
+            return MarkAsDone(id, delete);
         }
     }
 }

@@ -100,13 +100,20 @@ namespace leDraguePortal.Controllers
             return BadRequest("Filter cannot be null of empty");
         }
 
+        [HttpGet("searchByArtist")]
+        public ActionResult search(String artist, String filter)
+        {
+                Searcher searcher = new Searcher();
+                return Json(searcher.KeywordSearch(artist, filter));
+        }
+
         [HttpPost("request")]
         public ActionResult request(String title, String singer, String notes)
         {
             Configuration state = dbContext.Configurations.Where(c => c.key == Constants.KARAOKE_STATE_FLAG).FirstOrDefault();
 
             if (state.value.Equals(Constants.STOPPED_FLAG)) {
-                return BadRequest("Le karaoké n'est pas en fonction.  Vous ne peux pas demander de chansons pour le moment.");
+                return BadRequest("Le karaoké n'est pas en fonction.  Vous ne pouvez pas demander de chansons pour le moment.");
             }
             try
             {

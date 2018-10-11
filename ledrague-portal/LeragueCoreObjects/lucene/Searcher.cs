@@ -123,6 +123,51 @@ namespace LeDragueCoreObjects.lucene
 
         }
 
+        public List<SongItem> KeywordSearch(String artist, String term)
+        {
+            Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
+
+            String filteredTerm = term == null ? "" : Regex.Replace(term, "'!@#$%?&*()\\'\"", " ");
+            filteredTerm = Regex.Replace(filteredTerm, "'", " ");
+
+            // Perform a search
+            var searcher = getSearcher();
+            var hits_limit = 100;
+
+            BooleanQuery artistQuery = new BooleanQuery();
+            BooleanQuery songQuery = new BooleanQuery();
+            artistQuery = getPrefixQuery(artist, Constants.ARTIST_FIELD, analyzer);
+            songQuery = getPrefixQuery(filteredTerm, Constants.TITLE_FIELD, analyzer);
+
+            BooleanQuery finalQuery = new BooleanQuery();
+            finalQuery.Add(artistQuery, Occur.MUST);
+            finalQuery.Add(songQuery, String.IsNullOrEmpty(filteredTerm) ? Occur.SHOULD: Occur.MUST);
+            searcher.SetDefaultFieldSortScoring(true, true);
+
+            ScoreDoc[] hits = searcher.Search(finalQuery, null, hits_limit, Sort.RELEVANCE).ScoreDocs;
+
+            List<ScoreDoc> scoreDocs = new List<ScoreDoc>();
+            scoreDocs.AddRange(hits);
+/*            
+ *            if (hits.Length < hits_limit)
+            {
+                ScoreDoc[] fuzzyHits = searcher.Search(getFuzzyQuery(filteredTerm, analyzer), null, hits_limit, Sort.RELEVANCE).ScoreDocs;
+                scoreDocs.AddRange(fuzzyHits);
+            }
+*/
+            List<SongItem> searchResults = new List<SongItem>();
+            foreach (ScoreDoc hit in scoreDocs)
+            {
+                var document = searcher.IndexReader.Document(hit.Doc);
+                var item = new SongItem(Int32.Parse(document.Get(Constants.SONG_ID_FIELD)),
+                    document.Get(Constants.TITLE_FIELD) + " par " + document.Get(Constants.ARTIST_FIELD),
+                    hit.Score);
+                searchResults.Add(item);
+            }
+            searchResults.Sort((x, y) => y.score.CompareTo(x.score));
+            return searchResults;
+        }
+
         public List<SongItem> KeywordSearch(string term)
         {
             Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
@@ -156,9 +201,7 @@ namespace LeDragueCoreObjects.lucene
                 var item = new SongItem(Int32.Parse(document.Get(Constants.SONG_ID_FIELD)),
                     document.Get(Constants.TITLE_FIELD) + " par " + document.Get(Constants.ARTIST_FIELD),
                     hit.Score);
-//                if (!searchResults.ContainsKey(item.id)) {
-                    searchResults.Add(item);
-//                }
+                searchResults.Add(item);
             }
             searchResults.Sort((x, y) => y.score.CompareTo(x.score));
             return searchResults;
