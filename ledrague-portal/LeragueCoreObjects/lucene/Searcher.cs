@@ -85,10 +85,19 @@ namespace LeDragueCoreObjects.lucene
             searcher.SetDefaultFieldSortScoring(true, true);
 
             ScoreDoc[] hits = searcher.Search(finalQuery, null, 250, Sort.RELEVANCE).ScoreDocs;
-//            hits.Sort(x, y) => y.Score.CompareTo(x.Score));
+            List<ScoreDoc> scoreDocs = new List<ScoreDoc>();
+            scoreDocs.AddRange(hits);
+            var hits_limit = 100;
+
+            if (hits.Length < hits_limit)
+            {
+                ScoreDoc[] fuzzyHits = searcher.Search(getFuzzyQuery(Constants.ARTIST_FIELD, filteredTerm, analyzer), null, hits_limit, Sort.RELEVANCE).ScoreDocs;
+                scoreDocs.AddRange(fuzzyHits);
+            }
+            //            hits.Sort(x, y) => y.Score.CompareTo(x.Score));
 
             List<String> results = new List<String>();
-            foreach (ScoreDoc hit in hits)
+            foreach (ScoreDoc hit in scoreDocs)
             {
                 var document = searcher.IndexReader.Document(hit.Doc);
                 String name = document.Get(Constants.ARTIST_FIELD);
@@ -155,7 +164,7 @@ namespace LeDragueCoreObjects.lucene
         {
             Analyzer analyzer = new ASCIIFoldingAnalyzer(Lucene.Net.Util.Version.LUCENE_30);
 
-            String filteredTerm = term == null ? "" : Regex.Replace(term, "'!@#$%?&*()\\'\"", " ");
+            String filteredTerm = term == null ? "" : Regex.Replace(term, "'!@#\'\"", " ");
             filteredTerm = Regex.Replace(filteredTerm, "'", " ");
 
             // Perform a search
