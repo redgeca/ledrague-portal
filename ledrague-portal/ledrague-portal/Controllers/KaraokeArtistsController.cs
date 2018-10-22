@@ -48,6 +48,7 @@ namespace leDraguePortal.Controllers
             PaginatedList<Artist> resultArtists = await PaginatedList<Artist>.CreateAsync(artists.AsNoTracking(), page ?? 1, pageSize ?? 25);
 
             Request.HttpContext.Response.Headers.Add("X-Total-Count", resultArtists.TotalItems.ToString());
+            Request.HttpContext.Response.Headers.Add("Access-Control-Expose-Headers", "X-Total-Count");
             return new JsonResult(resultArtists);
         }
 
