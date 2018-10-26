@@ -10,6 +10,8 @@ using LeDragueCoreObjects.lucene;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using LeDragueCoreObjects.misc;
+using Microsoft.AspNetCore.SignalR;
+using LeDraguePortal.Hubs;
 
 namespace leDraguePortal.Controllers
 {
@@ -18,10 +20,12 @@ namespace leDraguePortal.Controllers
     public class KaraokeSongsController : Controller
     {
         private readonly ApplicationDbContext dbContext;
+        private readonly IHubContext<MessageHub> hubContext;
 
-        public KaraokeSongsController(ApplicationDbContext pDbContext)
+        public KaraokeSongsController(ApplicationDbContext pDbContext, IHubContext<MessageHub> pHubContext)
         {
             dbContext = pDbContext;
+            hubContext = pHubContext;
         }
 
         // GET: api/KaraokeState
@@ -135,7 +139,7 @@ namespace leDraguePortal.Controllers
                     dbContext.KaraokeRequests.Add(request);
                     dbContext.SaveChanges();
                 }
-
+                hubContext.Clients.All.SendAsync("newRequest", song.Title, singer, notes);
             }
             catch (IndexOutOfRangeException)
             {
@@ -149,6 +153,7 @@ namespace leDraguePortal.Controllers
             {
                 return BadRequest("La chanson demandée d'existe pas");
             }
+
             return Json("Demande effectuée à " + String.Format("{0:HH:mm:ss}", DateTime.Now));
         }
 

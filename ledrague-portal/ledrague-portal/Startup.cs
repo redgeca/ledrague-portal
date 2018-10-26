@@ -11,9 +11,11 @@ using Microsoft.Extensions.DependencyInjection;
 using ledrague_portal.Data;
 using ledrague_portal.Models;
 using ledrague_portal.Services;
+using Microsoft.AspNet.SignalR;
 using LeDraguePortal.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using LeDraguePortal.Hubs;
 
 namespace ledrague_portal
 {
@@ -36,6 +38,7 @@ namespace ledrague_portal
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            /*
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = false;
@@ -45,6 +48,7 @@ namespace ledrague_portal
                 options.Password.RequireLowercase = false;
                 options.Password.RequiredUniqueChars = 1;
             });
+            */
 
             /*
             services.AddAuthorization(options =>
@@ -58,6 +62,8 @@ namespace ledrague_portal
                 {
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
                 }));
+
+            services.AddSignalR();
 
             services.AddMvc( config =>
             {
@@ -99,9 +105,11 @@ namespace ledrague_portal
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseCors("CorsPolicy");
+
+            app.UseSignalR(s => s.MapHub<MessageHub>("/message"));
 
             app.UseMvc(routes =>
             {
