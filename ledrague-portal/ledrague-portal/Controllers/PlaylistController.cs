@@ -163,6 +163,7 @@ namespace leDraguePortal.Controllers
                 .Where(p => p.Id == entry.Id).FirstOrDefault();
 
             hubContext.Clients.All.SendAsync("reloadPlaylist");
+            hubContext.Clients.All.SendAsync("reloadRequests");
             return Ok(entry);
         }
 
