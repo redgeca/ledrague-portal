@@ -8,6 +8,8 @@ using ledrague_portal.Data;
 using LeDragueCoreObjects.Karaoke;
 using LeDragueCoreObjects.misc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.SignalR;
+using LeDraguePortal.Hubs;
 
 namespace leDraguePortal.Controllers
 {
@@ -16,10 +18,12 @@ namespace leDraguePortal.Controllers
     public class RequestController : Controller
     {
         private readonly ApplicationDbContext dbContext;
+        private readonly IHubContext<MessageHub> hubContext;
 
-        public RequestController(ApplicationDbContext pContext)
+        public RequestController(ApplicationDbContext pContext, IHubContext<MessageHub> pHubContext)
         {
             dbContext = pContext;
+            hubContext = pHubContext;
         }
 
         private DateTime getLastStartupDate()
@@ -94,6 +98,7 @@ namespace leDraguePortal.Controllers
                 .Include(r => r.Song).ThenInclude(s => s.Artist)
                 .Where(r => r.Id == requestId).FirstOrDefault();
 
+            hubContext.Clients.All.SendAsync("reloadRequests");
             return Ok(newRequest);
         }
 
@@ -112,8 +117,8 @@ namespace leDraguePortal.Controllers
 
             dbContext.SaveChanges();
 
+            hubContext.Clients.All.SendAsync("reloadRequests");
             return Ok();
         }
-
     }
 }

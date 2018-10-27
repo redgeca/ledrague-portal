@@ -8,6 +8,8 @@ using LeDragueCoreObjects.misc;
 using ledrague_portal.Data;
 using Microsoft.EntityFrameworkCore;
 using LeDragueCoreObjects.Karaoke;
+using Microsoft.AspNetCore.SignalR;
+using LeDraguePortal.Hubs;
 
 namespace leDraguePortal.Controllers
 {
@@ -16,10 +18,12 @@ namespace leDraguePortal.Controllers
     public class PlaylistController : Controller
     {
         private readonly ApplicationDbContext dbContext;
+        private readonly IHubContext<MessageHub> hubContext;
 
-        public PlaylistController(ApplicationDbContext pContext)
+        public PlaylistController(ApplicationDbContext pContext, IHubContext<MessageHub> pHubContext)
         {
             dbContext = pContext;
+            hubContext = pHubContext;
         }
 
         //        [Authorize(Roles="animation,admin,DJ")]
@@ -111,6 +115,8 @@ namespace leDraguePortal.Controllers
             dbContext.KaraokePlaylists.Update(request);
             dbContext.SaveChanges();
 
+            hubContext.Clients.All.SendAsync("reloadPlaylist");
+
             return Ok(request);
         }
 
@@ -155,6 +161,8 @@ namespace leDraguePortal.Controllers
                 .ThenInclude(r => r.Song)
                 .ThenInclude(s => s.Artist)
                 .Where(p => p.Id == entry.Id).FirstOrDefault();
+
+            hubContext.Clients.All.SendAsync("reloadPlaylist");
             return Ok(entry);
         }
 
@@ -193,6 +201,7 @@ namespace leDraguePortal.Controllers
             }
 
             dbContext.SaveChanges();
+            hubContext.Clients.All.SendAsync("reloadPlaylist");
             return Ok();
         }
 
