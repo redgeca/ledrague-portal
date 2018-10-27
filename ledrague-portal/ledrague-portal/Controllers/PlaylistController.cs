@@ -203,6 +203,7 @@ namespace leDraguePortal.Controllers
 
             dbContext.SaveChanges();
             hubContext.Clients.All.SendAsync("reloadPlaylist");
+            hubContext.Clients.All.SendAsync("reloadRequests");
             return Ok();
         }
 
