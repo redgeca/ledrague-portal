@@ -140,6 +140,8 @@ namespace leDraguePortal.Controllers
                     dbContext.SaveChanges();
                 }
                 hubContext.Clients.All.SendAsync("newRequest", song.Title, singer, notes);
+                hubContext.Clients.All.SendAsync("reloadRequests");
+
             }
             catch (IndexOutOfRangeException)
             {
